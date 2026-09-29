@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0b">
+  <title>Cave Barber Shop — Atendimento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-cave.jpg" alt="Logo Cave Barber Shop">
+      <div><strong>Cave Barber Shop</strong><span>Sistema de gestão</span></div>
+    </a>
+    <nav>
+      <a class="topnav active" href="index.html">⌂ <span>Início</span></a>
+      <a class="topnav" href="admin.html">▣ <span>Administração</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="view active">
+      <div class="hero">
+        <div>
+          <p class="kicker">NOVO ATENDIMENTO</p>
+          <h1>Registrar serviço</h1>
+          <p>Preencha os dados abaixo. A data e a hora são automáticas, mas podem ser alteradas.</p>
+        </div>
+        <div class="live-clock" id="liveClock"></div>
+      </div>
+
+      <div class="public-grid single-form-grid">
+        <form id="serviceForm" class="panel form-panel">
+          <div class="panel-head">
+            <div class="badge">✂</div>
+            <div><h2>Dados do atendimento</h2><p>Todos os campos são obrigatórios.</p></div>
+          </div>
+
+          <div class="form-grid">
+            <label class="field full"><span>Barbeiro</span>
+              <select id="barber" required>
+                <option value="">Selecione o barbeiro</option>
+                <option>Bruno</option>
+                <option>Branco</option>
+                <option>Wellington</option>
+                <option>Washington</option>
+              </select>
+            </label>
+
+            <label class="field full"><span>Nome do cliente</span>
+              <input id="client" type="text" maxlength="80" placeholder="Digite o nome do cliente" required>
+            </label>
+
+            <label class="field full"><span>Serviço realizado</span>
+              <select id="service" required>
+                <option value="">Selecione o serviço</option>
+                <option>Corte</option>
+                <option>Corte + Barba</option>
+              </select>
+            </label>
+
+            <label class="field"><span>Data</span><input id="date" type="date" required></label>
+            <label class="field"><span>Hora</span><input id="time" type="time" required></label>
+
+            <label class="field full"><span>Valor cobrado</span>
+              <div class="money"><b>R$</b><input id="value" type="number" min="0" step="0.01" placeholder="0,00" required></div>
+            </label>
+          </div>
+
+          <button class="primary" type="submit">Salvar atendimento</button>
+          <p class="small-note">A integração com Google Sheets está indicada no arquivo <code>script.js</code>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

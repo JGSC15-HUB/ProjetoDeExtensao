@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0b">
+  <title>Cave Barber Shop — Administração</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-cave.jpg" alt="Logo Cave Barber Shop">
+      <div><strong>Cave Barber Shop</strong><span>Sistema de gestão</span></div>
+    </a>
+    <nav>
+      <a class="topnav" href="index.html">⌂ <span>Início</span></a>
+      <a class="topnav active" href="admin.html">▣ <span>Administração</span></a>
+    </nav>
+  </header>
+
+  <main id="loginArea">
+    <section class="login-wrap">
+      <form id="loginForm" class="panel login-card">
+        <img src="assets/logo-cave.jpg" alt="Cave Barber Shop">
+        <p class="kicker">ÁREA RESTRITA</p>
+        <h1>Login administrativo</h1>
+        <p class="login-description">Acesse os dados financeiros e administrativos da barbearia.</p>
+        <label class="field"><span>Usuário</span><input id="username" type="text" autocomplete="username" required placeholder="Digite seu usuário"></label>
+        <label class="field"><span>Senha</span><input id="password" type="password" autocomplete="current-password" required placeholder="Digite sua senha"></label>
+        <p id="loginError" class="error"></p>
+        <button class="primary" type="submit">Entrar</button>
+        <p class="demo">Demonstração: <b>admin</b> / <b>1234</b></p>
+      </form>
+    </section>
+  </main>
+
+  <div id="adminArea" class="admin-layout hidden" aria-hidden="true">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/logo-cave.jpg" alt="">
+        <div><strong>Cave</strong><span>Administração</span></div>
+      </div>
+      <button class="side-link active" data-admin-page="dashboard">Dashboard</button>
+      <button class="side-link" data-admin-page="records">Atendimentos</button>
+      <button class="side-link" data-admin-page="barbers">Barbeiros</button>
+      <button class="side-link" data-admin-page="clients">Clientes</button>
+      <button id="logout" class="side-link logout">Sair</button>
+    </aside>
+
+    <div class="admin-content">
+      <section id="dashboard" class="admin-page active">
+        <div class="admin-heading">
+          <div><p class="kicker">VISÃO GERAL</p><h1>Painel financeiro</h1></div>
+          <span id="adminDate"></span>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><span>Hoje</span><strong id="dayRevenue">R$ 0,00</strong><small id="dayCount">0 atendimentos</small></article>
+          <article class="stat-card"><span>Esta semana</span><strong id="weekRevenue">R$ 0,00</strong><small id="weekCount">0 atendimentos</small></article>
+          <article class="stat-card"><span>Este mês</span><strong id="monthRevenue">R$ 0,00</strong><small id="monthCount">0 atendimentos</small></article>
+        </div>
+
+        <div class="panel table-panel">
+          <div class="section-head"><div><p class="kicker">ÚLTIMOS REGISTROS</p><h2>Atendimentos recentes</h2></div></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Barbeiro</th><th>Cliente</th><th>Serviço</th><th>Data</th><th>Hora</th><th>Valor</th></tr></thead>
+              <tbody id="recentTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="records" class="admin-page">
+        <div class="admin-heading"><div><p class="kicker">HISTÓRICO</p><h1>Atendimentos</h1></div></div>
+        <div class="panel filter-panel">
+          <input id="recordSearch" placeholder="Pesquisar cliente ou barbeiro">
+          <select id="recordBarber">
+            <option value="">Todos os barbeiros</option>
+            <option>Bruno</option><option>Branco</option><option>Wellington</option><option>Washington</option>
+          </select>
+        </div>
+        <div class="panel table-panel">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Barbeiro</th><th>Cliente</th><th>Serviço</th><th>Data</th><th>Hora</th><th>Valor</th></tr></thead>
+              <tbody id="allTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="barbers" class="admin-page">
+        <div class="admin-heading"><div><p class="kicker">DESEMPENHO</p><h1>Barbeiros</h1></div></div>
+        <div id="barberCards" class="barber-grid"></div>
+      </section>
+
+      <section id="clients" class="admin-page">
+        <div class="admin-heading"><div><p class="kicker">CLIENTES</p><h1>Histórico de clientes</h1></div></div>
+        <div class="panel filter-panel"><input id="clientSearch" placeholder="Pesquisar cliente"></div>
+        <div id="clientCards" class="client-grid"></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
